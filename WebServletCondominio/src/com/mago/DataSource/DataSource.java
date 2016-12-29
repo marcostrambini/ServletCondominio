@@ -8,11 +8,13 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 
 import javax.naming.spi.DirStateFactory.Result;
 
 import com.mago.Entity.Logins;
+import com.mago.Entity.Utente;
 import com.mago.Servlet.MyServlet;
 
 public class DataSource {
@@ -68,21 +70,37 @@ public class DataSource {
 		 bean.setPassword(rs.getString("password"));
 	     return bean;
 	  }
+	 
+	 public Utente makeUtenteBean( ResultSet rs ) throws SQLException {
+		 Utente bean = new Utente();
+		 bean.setId(rs.getInt("id"));
+		 bean.setNome(rs.getString("nome"));
+		 bean.setCognome(rs.getString("cognome"));
+		 bean.setEmail(rs.getString("email"));
+		 bean.setPassword(rs.getString("password"));
+		 bean.setStato(rs.getString("stato"));
+		 bean.setTipo(rs.getString("tipo"));
+		 bean.setData_creazione(rs.getTimestamp("data_creazione"));
+		 bean.setData_login(rs.getTimestamp("data_login"));
+	     return bean;
+	  }
 
 	/* fine bean makers */
 	
 
 	/* metodi */
-	public ArrayList<Logins> getAllLogins(){
-		ArrayList<Logins> result = new ArrayList<Logins>();
+
+	
+	public ArrayList<Utente> getAllUtenti(){
+		ArrayList<Utente> result = new ArrayList<Utente>();
 		Connection con = getConnection();
 		java.sql.Statement stm = null;
 		ResultSet rs = null;
 		try {
 			stm = con.createStatement();
-			rs = stm.executeQuery(MyQuery.qSelAllLogins);
+			rs = stm.executeQuery(MyQuery.qSelAllUtenti);
 			while(rs.next())
-				result.add( makeLoginsBean(rs));
+				result.add( makeUtenteBean(rs));
 			} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -101,6 +119,31 @@ public class DataSource {
 			pstm.setString(2, cognome);
 			pstm.setString(3, mail);
 			pstm.setString(4, pwd);
+			result = pstm.execute();
+			
+			
+			} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return !result;
+	}
+	
+	public boolean insUtente(String nome, String cognome, String email, String password, String stato, String tipo, Timestamp data_creazione, Timestamp data_login){
+		boolean result = false;
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		
+		try {
+			pstm = con.prepareStatement(MyQuery.qInsUtente);
+			pstm.setString(1, nome);
+			pstm.setString(2, cognome);
+			pstm.setString(3, email);
+			pstm.setString(4, password);
+			pstm.setString(5, stato);
+			pstm.setString(6, tipo);
+			pstm.setTimestamp(7, data_creazione);
+			pstm.setTimestamp(8, data_login);
 			result = pstm.execute();
 			
 			
