@@ -33,4 +33,31 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>WebContent/bootstrap</name>
+			<type>2</type>
+			<locationURI>PARENT-5-PROJECT_LOC/Mago/Sviluppo/Cordova-Projects/Condominio/www/bootstrap</locationURI>
+		</link>
+		<link>
+			<name>WebContent/css</name>
+			<type>2</type>
+			<locationURI>PARENT-5-PROJECT_LOC/Mago/Sviluppo/Cordova-Projects/Condominio/www/css</locationURI>
+		</link>
+		<link>
+			<name>WebContent/img</name>
+			<type>2</type>
+			<locationURI>PARENT-5-PROJECT_LOC/Mago/Sviluppo/Cordova-Projects/Condominio/www/img</locationURI>
+		</link>
+		<link>
+			<name>WebContent/index.html</name>
+			<type>1</type>
+			<locationURI>PARENT-5-PROJECT_LOC/Mago/Sviluppo/Cordova-Projects/Condominio/www/index.html</locationURI>
+		</link>
+		<link>
+			<name>WebContent/js</name>
+			<type>2</type>
+			<locationURI>PARENT-5-PROJECT_LOC/Mago/Sviluppo/Cordova-Projects/Condominio/www/js</locationURI>
+		</link>
+	</linkedResources>
 </projectDescription>

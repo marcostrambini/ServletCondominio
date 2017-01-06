@@ -5,10 +5,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/myJS.js"></script>
 </head>
 <body>
 
-<form action="MyServlet?act=insLogin" method="post">
+<form action="MyServlet?act=insUtente" method="post">
   First name:<br>
   <input type="text" name="nome" value="">
   <br>
@@ -16,7 +21,7 @@
   <input type="text" name="cognome" value="">
   <br>
   Mail:<br>
-  <input type="text" name="mail" value="">
+  <input type="text" name="email" value="">
   <br>
   pwd:<br>
   <input type="text" name="pwd" value="">
@@ -24,6 +29,11 @@
   <input type="submit" value="Submit">
 </form> 
 
+<button id="btn-reload" class="btn btn-danger">reload</button>
+<br>
+<br>
+<h5>Utenti registrati</h5>
+<div id="div-table"></div>
 
 
 </body>

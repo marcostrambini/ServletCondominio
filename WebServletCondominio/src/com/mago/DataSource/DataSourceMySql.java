@@ -17,28 +17,28 @@ import com.mago.Entity.Logins;
 import com.mago.Entity.Utente;
 import com.mago.Servlet.MyServlet;
 
-public class DataSource {
+public class DataSourceMySql {
 	
-//	public String server = "192.168.1.11";
-//	public String dbname = "condominio";
-//	public String port = "3306";
-//	public String driver = "com.mysql.jdbc.Driver";
-//	public String user = "mysql";
-//	public String pwd =  "mysql";
-	
-	public String server = "95.110.171.18";
-	public String dbname = "demo64";
+	public String server = "192.168.1.11";
+	public String dbname = "condominio";
 	public String port = "3306";
 	public String driver = "com.mysql.jdbc.Driver";
-	public String user = "demo64";
-	public String pwd =  "demo0448";
+	public String user = "mysql";
+	public String pwd =  "mysql";
+	
+//	public String server = "95.110.171.18";
+//	public String dbname = "demo64";
+//	public String port = "3306";
+//	public String driver = "com.mysql.jdbc.Driver";
+//	public String user = "demo64";
+//	public String pwd =  "demo0448";
 	
 	
 	
 	String url = "jdbc:mysql://"+server+":"+port+"/"+dbname+"?autoReconnect=true&useSSL=false";
 	
 			
-	public DataSource(){
+	public DataSourceMySql(){
 		try {
 			Class.forName(driver);
 		} catch (ClassNotFoundException e) {
